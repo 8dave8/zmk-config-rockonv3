@@ -1,4 +1,4 @@
-fi SHIELD_ROCKONV3
+if SHIELD_ROCKONV3
 
 config ZMK_KEYBOARD_NAME
 	default "rockonv3"
