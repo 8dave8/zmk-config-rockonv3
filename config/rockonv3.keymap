@@ -1,0 +1,31 @@
+#include "keys_hu.h"
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+
+
+/ {
+keymap {
+        compatible = "zmk,keymap";
+
+        layer_0 {
+            bindings = <
+&kp HU_O_UMLAUT  &kp HU_U_UMLAUT  &kp HU_O_ACUTE  &kp HU_O_DOUBLE_ACUTE  &kp HU_U_DOUBLE_ACUTE  &kp HU_U_ACUTE  &kp HU_E_ACUTE  &kp HU_A_ACUTE  &trans  &trans  &kp TAB  &kp HU_I_ACUTE  &kp E  &kp I  &trans  &kp K_LOCK  &kp W  &kp R  &kp U  &kp O  &kp T  &kp Z  &mkp MB4  &mkp MB5  &kp CAPS  &kp Q  &kp D  &kp K  &kp P  &kp PAGE_UP  &kp S  &kp F  &kp J  &kp L  &kp G  &kp H  &mkp MB1  &mkp MB2  &kp LEFT_SHIFT  &kp A  &kp C  &kp COMMA  &kp MINUS  &kp PAGE_DOWN  &kp X  &kp V  &kp M  &kp PERIOD  &kp B  &kp N  &kp LEFT_CONTROL  &kp Y  &trans  &trans  &kp LEFT_WIN  &kp LEFT_ALT  &kp DELETE  &kp BACKSPACE  &kp RIGHT_ALT  &trans  &mo 1  &mo 2  &kp SPACE  &kp SPACE  &kp ENTER  &trans  &mkp MB3  &trans  &kp ENTER
+            >;
+        };
+
+        numpad {
+            bindings = <
+&trans  &kp KP_NUMBER_8  &trans  &trans  &kp KP_NUMBER_7  &kp KP_NUMBER_9  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp KP_NUMBER_5  &kp KP_MINUS  &trans  &trans  &trans  &kp KP_NUMBER_4  &kp KP_NUMBER_6  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp KP_NUMBER_2  &kp PLUS  &trans  &trans  &trans  &kp KP_NUMBER_1  &kp KP_NUMBER_3  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp KP_NUMBER_0  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp DEL  &kp BACKSPACE  &trans  &trans  &trans  &trans  &trans  &trans  &kp ENTER  &trans  &trans  &trans  &kp ENTER
+            >;
+        };
+
+        special {
+            bindings = <
+&kp HU_PLUS  &kp LPAR  &kp HU_DOUBLE_QUOTES  &kp EXCL  &kp HU_EQUAL  &kp RPAR  &kp HU_PERCENT  &kp HU_SLASH  &bootloader  &bt BT_SEL 0  &kp HU_SECTION  &kp HU_SQT  &kp F2  &trans  &trans  &trans  &kp F1  &kp F3  &trans  &trans  &kp F4  &trans  &trans  &trans  &trans  &trans  &kp F6  &kp UP_ARROW  &trans  &trans  &kp F5  &kp F7  &trans  &trans  &kp F8  &trans  &trans  &trans  &trans  &trans  &kp F10  &kp DOWN_ARROW  &trans  &trans  &kp F9  &kp F11  &kp LEFT_ARROW  &kp RIGHT_ARROW  &kp F12  &trans  &kp LCTRL  &trans  &trans  &trans  &trans  &kp LALT  &kp DEL  &kp BACKSPACE  &trans  &trans  &trans  &trans  &kp SPACE  &kp SPACE  &kp ENTER  &trans  &trans  &trans  &kp ENTER
+            >;
+        };
+    };
+};
