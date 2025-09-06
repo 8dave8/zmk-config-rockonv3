@@ -1,24 +1,22 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
 
+&xiao_serial { status = "disabled"; };
 
-/ {
-
-	&xiao_serial { status = "disabled"; };
-
-	&xiao_spi {
+&xiao_spi {
+	status = "okay";
+	cs-gpios = <&xiao_d 9 GPIO_ACTIVE_LOW>;
+	shifter: 595@0 {
+		compatible = "zmk,gpio-595";
 		status = "okay";
-		cs-gpios = <&xiao_d 9 GPIO_ACTIVE_LOW>;
-		shifter: 595@0 {
-			compatible = "zmk,gpio-595";
-			status = "okay";
-			gpio-controller;
-			spi-max-frequency = <200000>;
-			reg = <0>;
-			ngpios = <16>;
-		};
+		gpio-controller;
+		spi-max-frequency = <200000>;
+		reg = <0>;
+		ngpios = <16>;
 	};
-
+};
+	
+/ {
 	chosen {
 		zmk,physical-layout = &default_transform;
 		zmk,kscan = &kscan0;
