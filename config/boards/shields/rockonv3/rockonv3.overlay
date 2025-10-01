@@ -34,7 +34,7 @@
             RC(4,0)         RC(4,1)
         >;
     };
-
+};
 
 	&pinctrl {
 		spi0_default: spi0_default {
@@ -88,6 +88,6 @@
 		device = <&trackball>;
 	};
 
-};
+
 
 
