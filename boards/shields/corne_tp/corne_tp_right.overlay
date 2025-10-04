@@ -3,7 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
-
+#include "corne_tp.dtsi"
 
 &spi1 {
     status = "okay";
@@ -19,7 +19,6 @@
     };
 };
 
-#include "corne_tp.dtsi"
 
 &default_transform {
     col-offset = <6>;
