@@ -32,8 +32,8 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
 
     five_column_transform: keymap_transform_1 {
         compatible = "zmk,matrix-transform";
-        columns = <10>;
-        rows = <4>;
+        columns = <14>;
+        rows = <5>;
 // | SW2  | SW3  | SW4  | SW5  | SW6  |   | SW6  | SW5  | SW4  | SW3  | SW2  |
 // | SW8  | SW9  | SW10 | SW11 | SW12 |   | SW12 | SW11 | SW10 | SW9  | SW8  |
 // | SW14 | SW15 | SW16 | SW17 | SW18 |   | SW18 | SW17 | SW16 | SW15 | SW14 |
@@ -52,11 +52,12 @@ RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10
 
         diode-direction = "col2row";
         row-gpios
-            = <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-//          , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-//          , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-//          , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-//          ;
+              = <&gpio1 01 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			  , <&gpio1 02 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			  , <&gpio1 07 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			  , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			  , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			  ;
 
     };
 
