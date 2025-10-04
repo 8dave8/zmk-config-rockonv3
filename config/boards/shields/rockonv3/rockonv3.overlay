@@ -1,6 +1,28 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
 
+// Tell VIK that there is 1 other device on the SPI bus.
+// You will need to increase this number if you add another SPI device.
+#define VIK_SPI_REG_START 1
+// Pulled out to an external variable so VIK can find the SPI bus.
+#define VIK_SPI_CS_PREFIX <&gpio0 17 GPIO_ACTIVE_LOW>
+
+&spi1 {
+    status = "okay";
+    cs-gpios = VIK_SPI_CS_PREFIX;
+
+    shifter: 595@0 {
+        compatible = "zmk,gpio-595";
+        status = "okay";
+        gpio-controller;
+        spi-max-frequency = <200000>;
+        reg = <0>;
+        ngpios = <16>;
+        #gpio-cells = <2>;
+    };
+};
+
+
 / {
 	chosen {
 		zmk,kscan = &kscan0;
@@ -10,16 +32,21 @@
 	kscan0: kscan_0 {
 		compatible = "zmk,kscan-gpio-matrix";
 		diode-direction = "col2row";
-		row-gpios =
-			<&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-			<&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-			<&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-			<&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-			<&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-				
+		
 		col-gpios
-			= <&pro_micro 5 GPIO_ACTIVE_HIGH>
-		;
+            = <&shifter 7 GPIO_ACTIVE_HIGH> // COL0
+            , <&shifter 6 GPIO_ACTIVE_HIGH> // COL1
+            , <&shifter 5 GPIO_ACTIVE_HIGH> // COL2
+            , <&shifter 4 GPIO_ACTIVE_HIGH> // COL3
+            , <&shifter 3 GPIO_ACTIVE_HIGH> // COL4
+            , <&shifter 2 GPIO_ACTIVE_HIGH> // COL5
+            ;
+		row-gpios =
+			<&gpio0 01 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+			<&gpio0 02 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+			<&gpio0 07 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+			<&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+			<&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 	};
 
    default_transform: matrix_transform {
@@ -35,59 +62,6 @@
         >;
     };
 };
-
-	&pinctrl {
-		spi0_default: spi0_default {
-			group1 {
-				psels = <NRF_PSEL(SPIM_SCK, 1, 15)>,
-						<NRF_PSEL(SPIM_MOSI, 1, 13)>,
-						<NRF_PSEL(SPIM_MISO, 1, 11)>;
-			};
-		};
-
-		spi0_sleep: spi0_sleep {
-			group1 {
-				psels = <NRF_PSEL(SPIM_SCK, 1, 15)>,
-						<NRF_PSEL(SPIM_MOSI, 1, 13)>,
-						<NRF_PSEL(SPIM_MISO, 1, 11)>;
-				low-power-enable;
-			};
-		};
-	};
-
-	&uart0 {
-		status = "disabled";
-	};
-
-	&xiao_serial {
-		status = "disabled";
-	};
-
-	&spi0 {
-		status = "okay";
-		compatible = "nordic,nrf-spim";
-		pinctrl-0 = <&spi0_default>;
-		pinctrl-1 = <&spi0_sleep>;
-		pinctrl-names = "default", "sleep";
-		cs-gpios = <&pro_micro 7 GPIO_ACTIVE_LOW>;
-
-		trackball: trackball@0 {
-			status = "okay";
-			compatible = "pixart,pmw3389";
-			reg = <0>;
-			spi-max-frequency = <2000000>;
-			irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-			cpi = <650>;
-			evt-type = <INPUT_EV_REL>;
-			x-input-code = <INPUT_REL_X>;
-			y-input-code = <INPUT_REL_Y>;
-		};
-	};
-
-	&trackball_split {
-		device = <&trackball>;
-	};
-
 
 
 
