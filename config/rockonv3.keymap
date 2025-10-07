@@ -24,7 +24,7 @@
                    &kp N2    &kp N3    &kp N4     &kp N5            &kp MINUS  &kp LS(PLUS)      &kp N6                &kp N7     &kp N8    &kp N9
 &kp ESC    &kp N1  &kp W     &kp E     &kp R      &kp T             &mkp MB4   &mkp MB5          &kp Z                 &kp U      &kp I     &kp O     &kp N0         &kp LS(LPAR)
 &kp TAB    &kp Q   &kp S     &kp D     &kp F      &kp G             &mkp LCLK  &mkp RCLK         &kp H                 &kp J      &kp K     &kp L     &kp P          &kp DEL
-&kp LSHFT  &kp A   &kp X     &kp C     &kp B      &kp V             &kp PG_DN  &kp PG_UP         &kp N                 &kp M      &kp LT    &kp GT    &kp SEMI       &kp PIPE
+&kp LSHFT  &kp A   &kp X     &kp C     &kp V      &kp B             &kp PG_DN  &kp PG_UP         &kp N                 &kp M      &kp LT    &kp GT    &kp SEMI       &kp PIPE
 &kp LCTRL  &kp Y   &kp LGUI  &kp LALT  &kp LCTRL  &navhold 1 SPACE  &kp SPACE  &navhold 2 ENTER  &navhold 3 BACKSPACE  &kp RSHFT  &kp RALT  &kp RGUI  &kp LS(QMARK)  &kp RALT
             >;
         };
