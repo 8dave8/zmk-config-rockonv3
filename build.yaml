@@ -20,7 +20,7 @@
 include:
   - board: nice_nano_v2
     shield: rockonv3
-    snippet: cdc-acm-console studio-rpc-usb-uart
+    snippet: cdc-acm-console
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: rockonv3
 
