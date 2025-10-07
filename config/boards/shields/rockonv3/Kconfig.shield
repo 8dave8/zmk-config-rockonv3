@@ -3,3 +3,9 @@
 
 config SHIELD_ROCKONV3
     def_bool $(shields_list_contains,rockonv3)
+
+config ZMK_STUDIO_SUPPORT
+    bool "Enable ZMK Studio Support"
+    default y
+    help
+      This option enables support for ZMK Studio features

@@ -14,8 +14,10 @@ if SHIELD_ROCKONV3
 config ZMK_KEYBOARD_NAME
     default "rockonv3"
 
+config ZMK_STUDIO_SUPPORT
+    default y
+
+config CONFIG_ZMK_STUDIO_LOCKING
+    default n
 
 endif
-
-
-
