@@ -14,4 +14,7 @@ if SHIELD_ROCKONV3
 config ZMK_KEYBOARD_NAME
     default "rockonv3"
 
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
 endif
