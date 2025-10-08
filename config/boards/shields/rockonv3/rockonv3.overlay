@@ -92,7 +92,7 @@ RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,5) RC(4,6)  RC(4,7) RC(4,8) RC(4,9)
 // nice!nano clone or a seeduino xiao.
 //
 // In all other cases you should try using th
-#define MOUSE_PS2_DRIVER_UART
+// #define MOUSE_PS2_DRIVER_UART
 
 
 
